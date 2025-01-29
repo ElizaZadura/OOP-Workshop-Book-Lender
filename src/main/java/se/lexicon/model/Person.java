@@ -1,6 +1,6 @@
 package se.lexicon.model;
 
-import java.io.FilePermissionCollection;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,7 +26,6 @@ public class Person {
         if (book.isAvailable()) {
             this.borrowedBooks.add(book);
             book.setAvailable(false); // Assuming you have a setter for 'available' in the Book class
-            book.setBorrower(this);   // Assuming you have a setter for 'borrower' in the Book class
             System.out.println(firstName + " " + lastName + " borrowed " + book.getTitle() + ".");
         } else {
             System.out.println(book.getTitle() + " is currently unavailable.");
@@ -59,11 +58,5 @@ public class Person {
     public String getPersonInformation() {
         return String.format("{id: %s firstName: %s, lastName: %s}", id.toString(), firstName, lastName);
     }
-    public void loanBook(Book book) {
-        book.loanBook(this); // 'this' refers to the Person object
-    }
 
-    public void returnBook(Book book) {
-        book.returnBook();
-    }
 }
