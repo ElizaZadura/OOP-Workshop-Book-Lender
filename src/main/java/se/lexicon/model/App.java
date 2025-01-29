@@ -11,7 +11,9 @@ public class App {
         Person person = new Person("One", "Two");
         System.out.println(person.getPersonInformation());
         // Simulate borrowing a book
+        person.loanBook(book);
         // Simulate returning a book
+        person.returnBook(book);
 
     }
 
