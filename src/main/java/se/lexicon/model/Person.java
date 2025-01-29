@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Person {
-    //private static int sequencer = 0; ??
+
     private final int id;
     private final String firstName;
     private final String lastName;
@@ -16,6 +16,7 @@ public class Person {
         this.id = ++sequencer;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.borrowedBooks = new ArrayList<>();
     }
     public List<Book> getBorrowedBooks() {
         return new ArrayList<>(borrowedBooks); // Return a copy to prevent modification outside the class
@@ -25,23 +26,29 @@ public class Person {
     public void loanBook(Book book) {
         if (book.isAvailable()) {
             this.borrowedBooks.add(book);
-            book.setAvailable(false); // Assuming you have a setter for 'available' in the Book class
+            book.setAvailable(false);
             System.out.println(firstName + " " + lastName + " borrowed " + book.getTitle() + ".");
         } else {
             System.out.println(book.getTitle() + " is currently unavailable.");
         }
     }
 
+    private static int getNextId() {
+        return ++sequencer;
+    }
 
+
+    // In the Person class
     public void returnBook(Book book) {
         if (borrowedBooks.contains(book)) {
-            book.returnBook();
+            book.setAvailable(true);
             borrowedBooks.remove(book);
             System.out.println(firstName + " " + lastName + " returned " + book.getTitle() + ".");
         } else {
             System.out.println(firstName + " " + lastName + " did not borrow " + book.getTitle() + ".");
         }
     }
+
     // Getters
     public int getId() {
         return id;

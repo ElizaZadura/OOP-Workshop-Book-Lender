@@ -28,9 +28,7 @@ public class Book {
     public void setAvailable(boolean available) {
         this.available = !this.available;
     }
-/*    public void setBorrower(Person person) {
-        this.available = false;
-    }*/
+
     public String getAuthor() {
         return author;
     }
