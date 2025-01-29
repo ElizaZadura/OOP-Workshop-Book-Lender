@@ -43,7 +43,7 @@ public class Person {
         }
     }
     // Getters
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
@@ -56,7 +56,7 @@ public class Person {
     }
 
     public String getPersonInformation() {
-        return String.format("{id: %s firstName: %s, lastName: %s}", id.toString(), firstName, lastName);
+        return String.format("{id: %s firstName: %s, lastName: %s}", id, firstName, lastName);
     }
 
 }
