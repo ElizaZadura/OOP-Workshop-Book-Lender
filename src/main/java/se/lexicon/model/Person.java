@@ -22,7 +22,6 @@ public class Person {
         return new ArrayList<>(borrowedBooks); // Return a copy to prevent modification outside the class
     }
 
-    // In the Person class
     public void loanBook(Book book) {
         if (book.isAvailable()) {
             this.borrowedBooks.add(book);
@@ -38,7 +37,6 @@ public class Person {
     }
 
 
-    // In the Person class
     public void returnBook(Book book) {
         if (borrowedBooks.contains(book)) {
             book.setAvailable(true);
